@@ -1,54 +1,39 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 
 import * as empleadoActions from '../actions/empleadoActions';
+// styles
+import '../assets/styles/employes.styl';
+
+// COMPONENTS
+import Spinner from '../components/Loading';
+import Error from '../components/Error';
+import Tabla from '../components/Tabla';
 
 class Empleado extends Component {
 
   async componentDidMount() {
-    // eslint-disable-next-line react/destructuring-assignment
     this.props.traerTodos();
   }
 
-  // eslint-disable-next-line react/destructuring-assignment
-  ponerFilas = () => this.props.empleados.map((empleado) => (
-    <>
-      <tr key={empleado.id}>
-        <td>
-          { empleado.name }
-        </td>
-        <td>
-          { empleado.email }
-        </td>
-        <td>
-          { empleado.website }
-        </td>
-      </tr>
-    </>
-  ));
+  ponerContenido = () => {
+    if (this.props.cargando) {
+      return <Spinner />;
+    }
+    if (this.props.error) {
+      return <Error mensaje={this.props.error} />;
+    }
+    return <Tabla />;
+  };
 
+  // eslint-disable-next-line react/destructuring-assignment
   render() {
     return (
-      <div>
-        <table className='tabla'>
-          <thead>
-            <tr>
-              <th>
-                Nombre
-              </th>
-              <th>
-                Correo
-              </th>
-              <th>
-                Enlace
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            { this.ponerFilas() }
-          </tbody>
-        </table>
-      </div>
+      <>
+        { this.ponerContenido() }
+      </>
     );
   }
 };

@@ -6,14 +6,13 @@ import Layout from '../components/Navbar';
 import NotFound from '../components/NotFound';
 
 // PAGES
-import Home from '../containers/Home';
 import Empleados from '../containers/Empleado';
 
 const App = () => (
   <BrowserRouter>
     <Layout>
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Empleados} />
         <Route exact path='/employes' component={Empleados} />
         <Route component={NotFound} />
       </Switch>

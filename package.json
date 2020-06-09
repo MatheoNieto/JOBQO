@@ -8,9 +8,7 @@
     "start": "webpack-dev-server --open --mode development",
     "update": "yarn upgrade-interactive --latest",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -33,7 +31,6 @@
     "axios": "0.19.2",
     "clsx": "1.1.1",
     "core-js": "3.6.5",
-    "gh-pages": "3.0.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",

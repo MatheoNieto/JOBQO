@@ -42,7 +42,7 @@ const Home = () => {
         <Button
           className={clsx(classes.btn)}
           component={Link}
-          to='/consult'
+          to='/employes'
         >
           Consultar empleados
         </Button>

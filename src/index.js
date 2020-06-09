@@ -8,10 +8,6 @@ import { store, persistor } from './store';
 
 import Loading from './components/Loading';
 
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import '@babel/polyfill';
-
 ReactDOM.render(
   <Provider
     store={store}

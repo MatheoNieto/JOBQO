@@ -6,6 +6,6 @@ export const traerTodos = () => async (dispatch) => {
   const respuesta = await axios.get('http://dummy.restapiexample.com/api/v1/employees');
   dispatch({
     type: TRAER_TODOS,
-    payload: respuesta.data,
+    payload: respuesta.empleados.data,
   });
 };

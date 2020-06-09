@@ -1,4 +1,5 @@
 # FRONT CON REACT
+[![Build Status](https://travis-ci.com/MatheoNieto/JOBQO.svg?branch=master)](https://travis-ci.com/MatheoNieto/JOBQO)
 _Este front esta hecho con react_
 
 ### Pre-requisitos 📋

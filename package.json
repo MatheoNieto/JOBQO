@@ -10,7 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b gh-pages -d build"
   },
   "repository": {
     "type": "git",

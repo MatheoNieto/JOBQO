@@ -73,7 +73,6 @@ class CrearEmpleado extends Component {
     } else {
       limpiarForm();
     }
-
     crerEmpleado(newEmployee);
   }
 
@@ -107,8 +106,8 @@ class CrearEmpleado extends Component {
           (this.props.regresar) ? <Redirect to='/' /> : ''
         }
         <div className='container'>
-          <h1>Registrar empleado</h1>
-          <form onSubmit={this.guardar}>
+          <h1>{ (this.props.match.params.id) ? 'Actualizar empleado' : '¡Crear empleado!'}</h1>
+          <form onSubmit={this.guardar} autoComplete='off'>
             <TextField
               type='text'
               label='Nombres'
@@ -147,7 +146,7 @@ class CrearEmpleado extends Component {
               color='primary'
               disabled={this.desabilitar()}
             >
-              ¡Crea empleado!
+              { (this.props.match.params.id) ? 'Actualizar empleado' : '¡Crea empleado!'}
             </Button>
             {this.mostrarAccion()}
           </form>

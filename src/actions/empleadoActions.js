@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { TRAER_TODOS, CARGANDO, ERROR } from '../types/empleadosTypes';
+import {
+  TRAER_TODOS,
+  CARGANDO,
+  ERROR,
+  CAMBIONOMBRES,
+  CAMBIOSALARIO,
+  CAMBIOEDAD,
+  AGREGADO } from '../types/empleadosTypes';
 
 // eslint-disable-next-line import/prefer-default-export
 export const traerTodos = () => async (dispatch) => {
@@ -12,6 +19,46 @@ export const traerTodos = () => async (dispatch) => {
     dispatch({
       type: TRAER_TODOS,
       payload: respuesta.data.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ERROR,
+      payload: err.message,
+    });
+  }
+
+};
+
+export const changeNames = (nombre) => (dispatch) => {
+  dispatch({
+    type: CAMBIONOMBRES,
+    payload: nombre,
+  });
+};
+
+export const changeSalary = (salario) => (dispatch) => {
+  dispatch({
+    type: CAMBIOSALARIO,
+    payload: salario,
+  });
+};
+
+export const changeEdad = (edad) => (dispatch) => {
+  dispatch({
+    type: CAMBIOEDAD,
+    payload: edad,
+  });
+};
+
+export const crerEmpleado = (nuevoEmpleado) => async (dispatch) => {
+  dispatch({
+    type: CARGANDO,
+  });
+  try {
+    const respuesta = await axios.post('http://dummy.restapiexample.com/api/v1/create', nuevoEmpleado);
+
+    dispatch({
+      type: AGREGADO,
     });
   } catch (err) {
     dispatch({

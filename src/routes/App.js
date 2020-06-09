@@ -7,13 +7,14 @@ import NotFound from '../components/NotFound';
 
 // PAGES
 import Empleados from '../containers/Empleado';
+import CrearEmpleado from '../containers/CrearEmpleado';
 
 const App = () => (
   <BrowserRouter>
     <Layout>
       <Switch>
         <Route exact path='/' component={Empleados} />
-        <Route exact path='/employes' component={Empleados} />
+        <Route exact path='/employes' component={CrearEmpleado} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

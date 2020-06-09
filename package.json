@@ -67,7 +67,9 @@
     "html-loader": "1.1.0",
     "html-webpack-plugin": "4.3.0",
     "jest": "26.0.1",
+    "jest-fetch-mock": "^3.0.3",
     "mini-css-extract-plugin": "0.9.0",
+    "react-test-renderer": "16.13.1",
     "style-loader": "1.2.1",
     "stylus": "0.54.7",
     "stylus-loader": "3.0.2",
@@ -79,7 +81,10 @@
     "eslint": "7.2.0"
   },
   "jest": {
-    "setupFilesAfterEnv":["<rootDir>/src/__test__/setupTest.js"],
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/__test__/setupTest.js"
+    ],
     "moduleNameMapper": {
       "\\.(styl|css)$": "<rootDir>/src/__mocks__/styleMock.js"
     }

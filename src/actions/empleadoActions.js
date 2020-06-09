@@ -6,7 +6,8 @@ import {
   CAMBIONOMBRES,
   CAMBIOSALARIO,
   CAMBIOEDAD,
-  GUARDAR } from '../types/empleadosTypes';
+  GUARDAR,
+  LIMPIAR } from '../types/empleadosTypes';
 
 // eslint-disable-next-line import/prefer-default-export
 export const traerTodos = () => async (dispatch) => {
@@ -106,4 +107,10 @@ export const eliminarEmpleado = (id) => async (dispatch) => {
     });
   }
 
+};
+
+export const limpiarForm = () => (dispatch) => {
+  dispatch(
+    { type: LIMPIAR },
+  );
 };

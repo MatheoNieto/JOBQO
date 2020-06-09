@@ -5,7 +5,8 @@ import {
   CAMBIONOMBRES,
   CAMBIOEDAD,
   CAMBIOSALARIO,
-  GUARDAR } from '../types/empleadosTypes';
+  GUARDAR,
+  LIMPIAR } from '../types/empleadosTypes';
 
 const INITIAL_STATE = {
   empleados: [],
@@ -53,7 +54,12 @@ export default (state = INITIAL_STATE, action) => {
         employee_age: '',
         regresar: true,
       };
-
+    case LIMPIAR:
+      return { ...state,
+        employee_name: '',
+        employee_salary: '',
+        employee_age: '',
+      };
     default: return state;
   };
 };

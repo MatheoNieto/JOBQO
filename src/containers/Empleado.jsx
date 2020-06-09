@@ -21,8 +21,9 @@ class Empleado extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.empleados.length) {
-      this.props.traerTodos();
+    const { empleados, cargando, traerTodos } = this.props;
+    if (!empleados.length && !cargando) {
+      traerTodos();
     }
   }
 

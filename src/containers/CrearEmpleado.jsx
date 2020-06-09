@@ -54,7 +54,8 @@ class CrearEmpleado extends Component {
       employee_salary,
       employee_age,
       crerEmpleado,
-      editarEmpleado } = this.props;
+      editarEmpleado,
+      limpiarForm } = this.props;
 
     const newEmployee = {
       name: employee_name,
@@ -69,6 +70,8 @@ class CrearEmpleado extends Component {
         ...newEmployee,
         id: employe.id };
       editarEmpleado(newDataEmpleado);
+    } else {
+      limpiarForm();
     }
 
     crerEmpleado(newEmployee);

@@ -28,6 +28,7 @@ const Tabla = (props) => {
           <Button
             variant='contained'
             color='primary'
+            className='btnUpdate'
             classes={{ root: 'btn-primary' }}
             component={Link}
             to={`/employe/${key}`}

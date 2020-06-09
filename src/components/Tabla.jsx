@@ -13,8 +13,11 @@ import Button from '@material-ui/core/Button';
 import CreateRoundedIcon from '@material-ui/icons/CreateRounded';
 
 import { connect } from 'react-redux';
+import * as empleadoActions from '../actions/empleadoActions';
 
 const Tabla = (props) => {
+  const { eliminarEmpleado } = props;
+
   const ponerFilas = () => props.empleados.map((empleado, key) => (
     <>
       <TableRow key={key}>
@@ -34,6 +37,8 @@ const Tabla = (props) => {
           <Button
             variant='contained'
             color='secondary'
+            onClick={() => eliminarEmpleado(empleado.id)}
+
           >
             Eliminar
           </Button>
@@ -79,4 +84,4 @@ const mapStateToProps = (reducers) => {
   return reducers.empleadosReducer;
 };
 
-export default connect(mapStateToProps)(Tabla);
+export default connect(mapStateToProps, empleadoActions)(Tabla);

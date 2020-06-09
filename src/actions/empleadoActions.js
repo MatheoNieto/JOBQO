@@ -58,7 +58,7 @@ export const crerEmpleado = (nuevoEmpleado) => async (dispatch) => {
     await axios.post('http://dummy.restapiexample.com/api/v1/create', nuevoEmpleado);
 
     dispatch({
-      type: AGREGADO,
+      type: GUARDAR,
     });
   } catch (err) {
     dispatch({
@@ -78,6 +78,26 @@ export const editarEmpleado = (datosEmpleado) => async (dispatch) => {
 
     dispatch({
       type: GUARDAR,
+    });
+  } catch (err) {
+    dispatch({
+      type: ERROR,
+      payload: err.message,
+    });
+  }
+
+};
+
+export const eliminarEmpleado = (id) => async (dispatch) => {
+  dispatch({
+    type: CARGANDO,
+  });
+  try {
+    await axios.delete(`http://dummy.restapiexample.com/api/v1/delete/${id}`);
+
+    dispatch({
+      type: TRAER_TODOS,
+      payload: [],
     });
   } catch (err) {
     dispatch({

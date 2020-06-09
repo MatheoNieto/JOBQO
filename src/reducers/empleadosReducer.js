@@ -5,8 +5,7 @@ import {
   CAMBIONOMBRES,
   CAMBIOEDAD,
   CAMBIOSALARIO,
-  AGREGADO,
-  EDITAR } from '../types/empleadosTypes';
+  GUARDAR } from '../types/empleadosTypes';
 
 const INITIAL_STATE = {
   empleados: [],

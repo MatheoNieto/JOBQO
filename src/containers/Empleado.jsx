@@ -20,6 +20,12 @@ class Empleado extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (!this.props.empleados.length) {
+      this.props.traerTodos();
+    }
+  }
+
   ponerContenido = () => {
     if (this.props.cargando) {
       return <Spinner />;

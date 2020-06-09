@@ -14,8 +14,10 @@ import Tabla from '../components/Tabla';
 
 class Empleado extends Component {
 
-  async componentDidMount() {
-    this.props.traerTodos();
+  componentDidMount() {
+    if (!this.props.empleados.length) {
+      this.props.traerTodos();
+    }
   }
 
   ponerContenido = () => {

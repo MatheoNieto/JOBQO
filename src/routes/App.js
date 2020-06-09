@@ -15,6 +15,7 @@ const App = () => (
       <Switch>
         <Route exact path='/' component={Empleados} />
         <Route exact path='/employes' component={CrearEmpleado} />
+        <Route exact path='/employe/:id' component={CrearEmpleado} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

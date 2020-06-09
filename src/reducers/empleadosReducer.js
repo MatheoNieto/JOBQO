@@ -5,7 +5,8 @@ import {
   CAMBIONOMBRES,
   CAMBIOEDAD,
   CAMBIOSALARIO,
-  AGREGADO } from '../types/empleadosTypes';
+  AGREGADO,
+  EDITAR } from '../types/empleadosTypes';
 
 const INITIAL_STATE = {
   empleados: [],
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
   employee_name: '',
   employee_salary: '',
   employee_age: '',
+  regresar: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -24,6 +26,7 @@ export default (state = INITIAL_STATE, action) => {
         empleados: action.payload,
         cargando: false,
         error: false,
+        regresar: false,
       };
 
     case CARGANDO:
@@ -41,7 +44,7 @@ export default (state = INITIAL_STATE, action) => {
     case CAMBIOSALARIO:
       return { ...state, employee_salary: action.payload };
 
-    case AGREGADO:
+    case GUARDAR:
       return { ...state,
         empleados: [],
         cargando: false,
@@ -49,6 +52,7 @@ export default (state = INITIAL_STATE, action) => {
         employee_name: '',
         employee_salary: '',
         employee_age: '',
+        regresar: true,
       };
 
     default: return state;

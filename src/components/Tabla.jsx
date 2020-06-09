@@ -15,9 +15,9 @@ import CreateRoundedIcon from '@material-ui/icons/CreateRounded';
 import { connect } from 'react-redux';
 
 const Tabla = (props) => {
-  const ponerFilas = () => props.empleados.map((empleado) => (
+  const ponerFilas = () => props.empleados.map((empleado, key) => (
     <>
-      <TableRow key={empleado.id}>
+      <TableRow key={key}>
         <TableCell>{empleado.employee_name}</TableCell>
         <TableCell align='right'>{empleado.employee_salary}</TableCell>
         <TableCell align='right'>{empleado.employee_age}</TableCell>
@@ -27,11 +27,14 @@ const Tabla = (props) => {
             color='primary'
             classes={{ root: 'btn-primary' }}
             component={Link}
-            to={`/employe/${empleado.id}`}
+            to={`/employe/${key}`}
           >
             Actualizar
           </Button>
-          <Button variant='contained' color='secondary'>
+          <Button
+            variant='contained'
+            color='secondary'
+          >
             Eliminar
           </Button>
         </TableCell>

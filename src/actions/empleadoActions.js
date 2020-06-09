@@ -6,7 +6,7 @@ import {
   CAMBIONOMBRES,
   CAMBIOSALARIO,
   CAMBIOEDAD,
-  AGREGADO } from '../types/empleadosTypes';
+  GUARDAR } from '../types/empleadosTypes';
 
 // eslint-disable-next-line import/prefer-default-export
 export const traerTodos = () => async (dispatch) => {
@@ -55,10 +55,29 @@ export const crerEmpleado = (nuevoEmpleado) => async (dispatch) => {
     type: CARGANDO,
   });
   try {
-    const respuesta = await axios.post('http://dummy.restapiexample.com/api/v1/create', nuevoEmpleado);
+    await axios.post('http://dummy.restapiexample.com/api/v1/create', nuevoEmpleado);
 
     dispatch({
       type: AGREGADO,
+    });
+  } catch (err) {
+    dispatch({
+      type: ERROR,
+      payload: err.message,
+    });
+  }
+
+};
+
+export const editarEmpleado = (datosEmpleado) => async (dispatch) => {
+  dispatch({
+    type: CARGANDO,
+  });
+  try {
+    await axios.put(`http://dummy.restapiexample.com/api/v1/update/${datosEmpleado.id}`, datosEmpleado);
+
+    dispatch({
+      type: GUARDAR,
     });
   } catch (err) {
     dispatch({

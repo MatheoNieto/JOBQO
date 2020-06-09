@@ -7,7 +7,8 @@ import {
   CAMBIOSALARIO,
   CAMBIOEDAD,
   GUARDAR,
-  LIMPIAR } from '../types/empleadosTypes';
+  LIMPIAR,
+  SEARCH } from '../types/empleadosTypes';
 
 // eslint-disable-next-line import/prefer-default-export
 export const traerTodos = () => async (dispatch) => {
@@ -113,4 +114,19 @@ export const limpiarForm = () => (dispatch) => {
   dispatch(
     { type: LIMPIAR },
   );
+};
+
+export const buscarEmpleado = (datos) => (dispatch, getState) => {
+  const { empleados } = getState().empleadosReducer;
+
+  const filtro = empleados.filter((empleado) => {
+    if (empleado.employee_name.indexOf(datos) > -1 || empleado.employee_salary.indexOf(datos) > -1 || empleado.employee_age.indexOf(datos) > -1) {
+      return empleado;
+    }
+  });
+
+  dispatch({
+    type: SEARCH,
+    payload: { filtro, datos },
+  });
 };

@@ -6,3 +6,4 @@ export const CAMBIOSALARIO = 'change_employee_salary';
 export const CAMBIOEDAD = 'change_employee_age';
 export const GUARDAR = 'employee_save';
 export const LIMPIAR = 'clear_form';
+export const SEARCH = 'seach_empleado';

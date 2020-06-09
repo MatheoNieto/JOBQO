@@ -6,7 +6,8 @@ import {
   CAMBIOEDAD,
   CAMBIOSALARIO,
   GUARDAR,
-  LIMPIAR } from '../types/empleadosTypes';
+  LIMPIAR,
+  SEARCH } from '../types/empleadosTypes';
 
 const INITIAL_STATE = {
   empleados: [],
@@ -16,6 +17,7 @@ const INITIAL_STATE = {
   employee_salary: '',
   employee_age: '',
   regresar: false,
+  textsearch: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -60,6 +62,16 @@ export default (state = INITIAL_STATE, action) => {
         employee_salary: '',
         employee_age: '',
       };
+    case SEARCH:
+      return {
+        ...state,
+        empleados: action.payload.filtro,
+        cargando: false,
+        error: false,
+        regresar: false,
+        textsearch: action.payload.datos,
+      };
+
     default: return state;
   };
 };
